@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CROPPILOT | AI Powered Farmer Support</title>
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(120deg, rgba(0,0,0,.7), rgba(0,128,0,.6)),
+    url("https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+/* GLASS CARD */
+.glass {
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+/* ICON CIRCLE */
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  background: #198754;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+/* SECTION BG */
+.section-bg {
+  background:
+    linear-gradient(120deg, rgba(0,128,0,.85), rgba(0,0,0,.85)),
+    url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">🌱 CROPPILOT</a>
+    <div>
+      <a href="/login/" class="btn btn-success btn-sm">Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="display-4 fw-bold">AI Powered Farmer Support System</h1>
+        <p class="lead mt-3">
+          Smart crop recommendations, disease detection, fertilizer guidance,
+          and expert agriculture support — all powered by Artificial Intelligence.
+        </p>
+        <a href="/login/" class="btn btn-success btn-lg mt-3">
+          Get Started <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Why CROPPILOT?</h2>
+      <p class="text-muted">Next-generation smart agriculture platform</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card glass p-4 h-100">
+          <div class="icon-circle mb-3"><i class="fas fa-seedling"></i></div>
+          <h5>AI Crop Recommendation</h5>
+          <p>Machine Learning based crop selection using soil and environment data.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glass p-4 h-100">
+          <div class="icon-circle mb-3"><i class="fas fa-leaf"></i></div>
+          <h5>Disease Detection</h5>
+          <p>Deep Learning CNN model detects crop leaf diseases instantly.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glass p-4 h-100">
+          <div class="icon-circle mb-3"><i class="fas fa-flask"></i></div>
+          <h5>Fertilizer Guidance</h5>
+          <p>Smart fertilizer suggestions based on soil nutrient analysis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section-bg text-white py-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3">
+        <h1 class="fw-bold">AI</h1>
+        <p>Powered Models</p>
+      </div>
+      <div class="col-md-3">
+        <h1 class="fw-bold">24/7</h1>
+        <p>Farmer Support</p>
+      </div>
+      <div class="col-md-3">
+        <h1 class="fw-bold">ML</h1>
+        <p>Crop Prediction</p>
+      </div>
+      <div class="col-md-3">
+        <h1 class="fw-bold">CNN</h1>
+        <p>Disease Detection</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">How It Works</h2>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-3 text-center">
+        <div class="icon-circle mx-auto mb-2"><i class="fas fa-user"></i></div>
+        <p>Login as Farmer</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="icon-circle mx-auto mb-2"><i class="fas fa-camera"></i></div>
+        <p>Upload Crop Image</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="icon-circle mx-auto mb-2"><i class="fas fa-brain"></i></div>
+        <p>AI Analysis</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="icon-circle mx-auto mb-2"><i class="fas fa-check"></i></div>
+        <p>Instant Solution</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-4">
+  <p class="mb-0">
+    © 2026 CROPPILOT | AI Powered Farmer Support System
+  </p>
+</footer>
+
+</body>
+</html>

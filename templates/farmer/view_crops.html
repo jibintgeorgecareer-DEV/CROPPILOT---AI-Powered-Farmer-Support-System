@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3 class="mb-4">Available Crops</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Crop Name</th>
+    <th>Suitable Soil</th>
+    <th>Season</th>
+  </tr>
+
+  {% for c in crops %}
+  <tr>
+    <td>{{ c.name }}</td>
+    <td>{{ c.suitable_soil }}</td>
+    <td>{{ c.season }}</td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td colspan="3" class="text-center text-muted">
+      No crops available
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+/* BACKGROUND */
+.feedback-bg{
+  background:
+    linear-gradient(120deg, rgba(0,0,0,.6), rgba(25,135,84,.6)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  padding: 40px;
+}
+
+/* GLASS CARD */
+.glass-card{
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(15px);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 20px 45px rgba(0,0,0,.4);
+  color: white;
+}
+
+/* TEXTAREA */
+textarea{
+  border-radius: 14px;
+  padding: 14px;
+  resize: none;
+}
+</style>
+
+<div class="feedback-bg">
+
+  <!-- HEADER -->
+  <div class="d-flex justify-content-between align-items-center mb-4 text-white">
+    <h3 class="fw-bold">
+      <i class="fas fa-star"></i> Farmer Feedback
+    </h3>
+    <span class="badge bg-success fs-6">
+      We Value Your Opinion
+    </span>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="glass-card p-4 col-lg-7">
+
+    <p class="mb-4">
+      Your feedback helps us improve the CROPPILOT system and provide
+      better AI-powered agricultural support.
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold">
+          <i class="fas fa-comment-dots"></i> Your Feedback
+        </label>
+        <textarea name="message"
+                  rows="5"
+                  class="form-control"
+                  placeholder="Share your experience, suggestions, or issues..."
+                  required></textarea>
+      </div>
+
+      <button class="btn btn-success btn-lg">
+        <i class="fas fa-paper-plane"></i> Submit Feedback
+      </button>
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+/* BACKGROUND */
+.farmer-bg{
+  background:
+    linear-gradient(120deg, rgba(0,0,0,.6), rgba(25,135,84,.6)),
+    url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  padding: 35px;
+}
+
+/* GLASS CARD */
+.glass-card{
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,.35);
+}
+
+/* STATUS BADGE */
+.badge-status{
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:13px;
+}
+</style>
+
+<div class="farmer-bg text-white">
+
+  <!-- HEADER -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">
+      <i class="fas fa-tractor"></i> Farmer Dashboard
+    </h2>
+    <span class="badge bg-success fs-6">
+      AI Support Active
+    </span>
+  </div>
+
+  <!-- QUICK STATS -->
+  <div class="row g-4 mb-4">
+
+    <div class="col-md-4">
+      <div class="glass-card p-4 text-center">
+        <i class="fas fa-leaf fa-2x mb-2"></i>
+        <h3>{{ reports|length }}</h3>
+        <p class="mb-0">Disease Reports</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="glass-card p-4 text-center">
+        <i class="fas fa-check-circle fa-2x mb-2"></i>
+        <h3>
+          {{ reports|dictsort:"verified_by_officer"|length }}
+        </h3>
+        <p class="mb-0">Verified</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="glass-card p-4 text-center">
+        <i class="fas fa-clock fa-2x mb-2"></i>
+        <h3>Pending</h3>
+        <p class="mb-0">Officer Review</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REPORT TABLE -->
+  <div class="glass-card p-4">
+
+    <h5 class="mb-3">
+      <i class="fas fa-notes-medical"></i> Recent Disease Reports
+    </h5>
+
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle bg-white text-dark">
+        <thead class="table-success">
+          <tr>
+            <th>Crop</th>
+            <th>Disease</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for r in reports %}
+          <tr>
+            <td>{{ r.crop_name }}</td>
+            <td>{{ r.detected_disease }}</td>
+            <td>
+              {% if r.verified_by_officer %}
+                <span class="badge bg-success badge-status">
+                  Verified
+                </span>
+              {% else %}
+                <span class="badge bg-warning text-dark badge-status">
+                  Pending
+                </span>
+              {% endif %}
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="3" class="text-center text-muted">
+              No reports available
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

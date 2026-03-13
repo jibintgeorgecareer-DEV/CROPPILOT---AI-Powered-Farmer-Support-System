@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+/* BACKGROUND */
+.detect-bg{
+  background:
+    linear-gradient(120deg, rgba(0,0,0,.6), rgba(25,135,84,.7)),
+    url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  padding: 40px;
+}
+
+/* GLASS CARD */
+.glass-card{
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(15px);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 20px 45px rgba(0,0,0,.4);
+  color: white;
+}
+
+/* FILE INPUT */
+.form-control{
+  border-radius: 12px;
+  padding: 12px;
+}
+
+/* AI PULSE */
+.ai-pulse{
+  height:14px;
+  width:14px;
+  background:#00ff9d;
+  border-radius:50%;
+  display:inline-block;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(0,255,157,.7);}
+  70%{box-shadow:0 0 0 15px rgba(0,255,157,0);}
+  100%{box-shadow:0 0 0 0 rgba(0,255,157,0);}
+}
+</style>
+
+<div class="detect-bg">
+
+  <!-- HEADER -->
+  <div class="d-flex justify-content-between align-items-center mb-4 text-white">
+    <h3 class="fw-bold">
+      <i class="fas fa-leaf"></i> Crop Disease Detection
+    </h3>
+    <div>
+      <span class="ai-pulse"></span>
+      <span class="ms-2 fw-semibold">AI Engine Online</span>
+    </div>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="glass-card p-4 col-lg-6">
+
+    <p class="mb-4">
+      Upload a clear image of the crop leaf to detect diseases using
+      <strong>AI-powered deep learning</strong>.
+    </p>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold">
+          <i class="fas fa-seedling"></i> Crop Name
+        </label>
+        <input type="text"
+               name="crop_name"
+               class="form-control"
+               placeholder="Enter crop name (e.g., Tomato)"
+               required>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-semibold">
+          <i class="fas fa-camera"></i> Upload Leaf Image
+        </label>
+        <input type="file"
+               name="image"
+               class="form-control"
+               accept="image/*"
+               required>
+        <small class="text-white-50">
+          Supported formats: JPG, PNG
+        </small>
+      </div>
+
+      <button class="btn btn-success btn-lg">
+        <i class="fas fa-brain"></i> Detect Disease
+      </button>
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h4 class="mb-4">Disease Detection Result</h4>
+
+{% for p in predictions %}
+<div class="card shadow p-4 mb-3">
+  <h5 class="text-danger">🦠 Detected Disease</h5>
+  <p class="fs-5"><strong>{{ p.disease }}</strong></p>
+
+  {% if p.confidence %}
+  <p>
+    <strong>Confidence:</strong>
+    <span class="badge bg-success">{{ p.confidence }}%</span>
+  </p>
+  {% endif %}
+
+  {% if p.treatment %}
+  <h6>💊 Recommended Treatment</h6>
+  <p>{{ p.treatment }}</p>
+  {% else %}
+  <p class="text-muted">Treatment will be provided after officer verification.</p>
+  {% endif %}
+</div>
+{% empty %}
+<div class="alert alert-warning">
+  No disease detected.
+</div>
+{% endfor %}
+
+<a href="/farmer/dashboard/" class="btn btn-secondary mt-3">
+  ← Back to Dashboard
+</a>
+
+{% endblock %}
